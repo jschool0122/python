@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[5]:
-
+#png 파일을 pdf로 변경
+#2022.02.25
 
 from PIL import Image
 from pprint import pprint
