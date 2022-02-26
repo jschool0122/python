@@ -1,39 +1,39 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
-
 
 #교원대 음악교육과 게시판 크롤링
-#2022.02.15.
+#2022.02.26.
+#selenium4로 업데이트 되면서 많은것이 바뀌었다. webdriver을 설정하는 부분이 Service를 사용해야 하는 등, 변화를 참고해서 개선하였음. 
+#왜 갑자기 첨부파일을 다운받냐..
 
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 import requests
 from bs4 import BeautifulSoup
 import time
 import openpyxl
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 
 wb = openpyxl.Workbook()
 ws = wb.active
 ws.append(['제목', '날짜', '링크', '본문'])
 
-options = webdriver.ChromeOptions()
-options.add_argument('--headless')
-options.add_argument("user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko")
+s = Service('C:/dev_python/Webdriver/chromedriver.exe')
+driver = webdriver.Chrome(service=s)
 
-chromedriver = 'C:/dev_python/Webdriver/chromedriver.exe' # 윈도우 
-driver = webdriver.Chrome(chromedriver, chrome_options=options)
+options = webdriver.ChromeOptions()
+options.add_argument("user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko")
 
 
 for num in range(1,2) :
     driver.get("http://music.knue.ac.kr/notice_02.brd/0"+str(num)+"..fc269d8/?shell=/index.shell:71")
-    elems = driver.find_elements_by_css_selector('table.table4list > tbody > tr > td:nth-child(3) > a')
+    elems = driver.find_elements_by_css_selector('table.table4list > tbody > tr > td > a')
     link_list = list()
     for elem in elems:
         links = elem.get_attribute('href').strip("'")
         link_list.append(links)
-
-    #print(link_list)
 
     for i in link_list:
         driver.get(i)
@@ -51,9 +51,6 @@ wb.save('크롤링_교원대음악교육과.xlsx')
 wb.close()
 
 driver.quit()    
-
-
-# In[ ]:
 
 
 
