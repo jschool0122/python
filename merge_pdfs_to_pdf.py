@@ -16,7 +16,8 @@ for file in files:
     else:
         continue
 
-print('pdf 대상 항목: '+str(pdflist))
+for i in pdflist:
+    print(i)
 
 merger = PdfFileMerger()
 
@@ -26,3 +27,6 @@ for pdf in pdflist:
 merge_pdf_name = '통합PDF_'+nowtime+'.pdf'
 merger.write(merge_pdf_name)
 merger.close()
+
+print('PDF 통합 작업이 완료되었습니다.')
+os.system("pause")
