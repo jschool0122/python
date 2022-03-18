@@ -14,8 +14,6 @@ win32gui.ShowWindow(hwnd, 0)  # 한/글 창을 숨겨줘. 0은 숨기기, 5는 �
 hwp.RegisterModule('FilePathCheckDLL', 'FilePathCheckerModule')  # 보안모듈 적용
 
 BASE_DIR = nowfolder # 한/글은 파일 열거나 저장할 때 전체경로를 입력해야 하므로, os.path.join(BASE_DIR, i) 식으로 사용할 것
-#print(os.getcwd())  # 현재경로 출력. 없어도 무관
-#print(len(os.listdir()))  # 현재폴더 안에 있는 파일 갯수 출력
 
 hwp_file_list = []
 for i in os.listdir(nowfolder) :
