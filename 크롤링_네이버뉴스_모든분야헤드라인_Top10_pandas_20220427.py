@@ -1,12 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[5]:
-
-
-#!/usr/bin/env python
-# coding: utf-8
-
 # In[6]:
 
 
@@ -55,7 +49,7 @@ for news_num in tqdm(range(100, 106)) :
             res2 = requests.get(link, headers = headers)
             soup2 = BeautifulSoup(res2.content, 'html.parser')
 
-            in_date = soup2.select_one('div > div > span')
+            in_date = soup2.select_one('div > div > span._ARTICLE_DATE_TIME')
 
             print(part, title, in_date.text, link)
             df.append([part, title, in_date.text, link])
@@ -78,11 +72,5 @@ print('네이버 뉴스 모든 분야(정치, 경제, 사회, 생활/문화, 세
 print('저장된 파일: '+save_file_name)
 
 os.system("pause")
-
-
-
-# In[ ]:
-
-
 
 
