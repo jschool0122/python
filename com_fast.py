@@ -11,7 +11,6 @@ os.system('DISM.exe /Online /Cleanup-image /Restorehealth')
 
 os.system('ipconfig/displaydns')
 os.system('ipconfig/flushdns')
-os.system('DISM.exe /Online /Cleanup-image /Restorehealth')
 
 print('작업이 종료되었습니다.')
 time.sleep(5)
@@ -28,7 +27,6 @@ os.system('pause')
 #ipconfig/flushdns
 #DISM.exe /Online /Cleanup-image /Restorehealth
 #sfc /scannow
-#chkdsk /f 재시작 필요
 
 #시스템 재시작 후 종료
-
+os.system('shutdown -r -t 0') #10초 뒤 재부팅
