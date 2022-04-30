@@ -49,7 +49,7 @@ data = pd.DataFrame(df, columns = ['제목', '저자', '정보', '링크'])
 data.index = data.index + 1
 
 savedate = time.strftime('(%Y%m%d-%H%M%S)')
-save_file_name = '크롤링_알라딘_신간('+savedate+').xlsx'
+save_file_name = '크롤링_알라딘_신간'+savedate+'.xlsx'
 data.to_excel(save_file_name)
 
 print('알라딘 신간 책을 크롤링했습니다. 현재폴더에서 '+save_file_name+'을 찾아보세요')
