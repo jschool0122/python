@@ -5,8 +5,8 @@ import time
 
 
 
+os.system('chkdsk /f')
 os.system('sfc /scannow')
-
 os.system('DISM.exe /Online /Cleanup-image /Restorehealth')
 
 os.system('ipconfig/displaydns')
@@ -14,7 +14,9 @@ os.system('ipconfig/flushdns')
 
 print('작업이 종료되었습니다.')
 time.sleep(5)
-os.system('pause')
+
+#도스창이 자동으로 꺼지지 않게 조치(아무 키나 누르세요)
+#os.system('pause')
 
 #os.system('shutdown -s -f')
 
@@ -28,5 +30,5 @@ os.system('pause')
 #DISM.exe /Online /Cleanup-image /Restorehealth
 #sfc /scannow
 
-#시스템 재시작 후 종료
+#시스템 재시작 
 os.system('shutdown -r -t 0') #10초 뒤 재부팅
