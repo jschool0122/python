@@ -8,7 +8,7 @@ import time
 os.system('chkdsk /f')
 os.system('sfc /scannow')
 os.system('DISM.exe /Online /Cleanup-image /Restorehealth')
-
+os.system('DISM.exe /Online /Cleanup-image /Scanhealth')
 os.system('ipconfig/displaydns')
 os.system('ipconfig/flushdns')
 
